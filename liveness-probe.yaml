@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-probe
+spec:
+  containers:
+    - name: ubuntu-container
+      image: nginx
+      command:
+        - /bin/bash
+        - -ec
+        - touch /tmp/live; sleep 30; rm /tmp/ready; sleep 600
+      livenessProbe:
+        exec:
+          command:
+            - cat
+            - /tmp/live
+        initialDelaySeconds: 5
+        periodSeconds: 5
+

@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: ubuntu-container
-      image: nginx
+      image: ubuntu
       command:
         - /bin/bash
         - -ec
